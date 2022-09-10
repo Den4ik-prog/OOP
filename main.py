@@ -18,15 +18,15 @@ class Student:
         else:
             return 'Ошибка'
 
-        def __str__(self):
-            grades_count = 0
-            courses_in_progress_string = ', '.join(self.courses_in_progress)
-            finished_courses_string = ', '.join(self.finished_courses)
-            for k in self.grades:
-                grades_count += len(self.grades[k])
-            self.average_rating = sum(map(sum, self.grades.values())) / grades_count
-            res = f" Имя: {self.name}\n Фамилия: {self.surname}\n  Средняя оценка за домашние задания:{self.average_grades}\n  Курсы в процессе изучения:{courses_in_progress_string}\n  Завершенные курсы:{finished_courses_string}"
-            return res
+    def __str__(self):
+        grades_count = 0
+        courses_in_progress_string = ', '.join(self.courses_in_progress)
+        finished_courses_string = ', '.join(self.finished_courses)
+        for k in self.grades:
+            grades_count += len(self.grades[k])
+        self.average_rating = sum(map(sum, self.grades.values())) / grades_count
+        res = f" Имя: {self.name}\n Фамилия: {self.surname}\n  Средняя оценка за домашние задания:{self.average_grades}\n  Курсы в процессе изучения:{courses_in_progress_string}\n  Завершенные курсы:{finished_courses_string}"
+        return res
 
     def __lt__(self, other):
     # Реализует сравнение через операторы студентов между собой по средней оценке за домашние задания
